@@ -48,7 +48,7 @@ O arquivo ISO para gerar um pendrive de instalação para o Arch Linux pode ser 
 
 * https://archlinux.org/download
 
-Nessa página há várias opções para download. É importante, também, baixar os Checksums (ao menos o SHA256!) para verificar a integridade da imagem ISO baixada antes de efetuar sua gravação em um pendrive. Após os downloads e a verificação do arquivo ISO, você pode utilizar um aplicativo como o Ventoy ou mesmo usar o terminal para efetuar a gravação:  
+Nessa página há várias opções para download. É importante, também, baixar os Checksums (ao menos o SHA256!) para verificar a integridade da imagem ISO baixada antes de efetuar sua gravação em um pendrive. Após os downloads e a verificação do arquivo ISO, você pode utilizar um aplicativo como o Ventoy ou mesmo usar o terminal para efetuar a gravação:
 
 ```sh
 dd if=[caminho para a ISO] of=[dispositivo do pendrive] bs=4M status=progress
@@ -74,7 +74,7 @@ Após realizar a inicialização (demora um pouquinho) com o pendrive, você rec
 loadkeys [nome_do_mapa_do_teclado]
 ``` 
 
-Para verificar as opções possíveis para ```[nome_do_mapa_do_teclado]``` você pode utilizar o seguinte comando: 
+Para verificar as opções possíveis para `[nome_do_mapa_do_teclado]` você pode utilizar o seguinte comando: 
 
 ```sh
 ls /usr/share/kbd/keymaps/**/*.map.gz
@@ -169,7 +169,7 @@ rfkill unblock wifi
 
 Feitas estas verificações e ajustes, se necessários, podemos continuar com as ações necessárias ao estabelecimento de uma conexão wi-fi;
 
-O Arch Linux possui uma ferramenta denominada **iwctl** para facilitar o estabelecimento de uma conexão wi-fi via terminal. Ela apresenta um prompt de comando interativo que permite a entrada de comandos e a obtenção de informações para facilitar este processo. Para começar, digite ```iwctl``` e pressione a tecla ```ENTER```. A partir desse momento você estará no prompt interativo do **iwctl**. O primeiro comando a executar é este:
+O Arch Linux possui uma ferramenta denominada **iwctl** para facilitar o estabelecimento de uma conexão wi-fi via terminal. Ela apresenta um prompt de comando interativo que permite a entrada de comandos e a obtenção de informações para facilitar este processo. Para começar, digite `iwctl` e pressione a tecla `ENTER`. A partir desse momento você estará no prompt interativo do **iwctl**. O primeiro comando a executar é este:
 
 ```sh
 device list
@@ -274,7 +274,7 @@ Sector size (logical/physical): 4096 bytes / 4096 bytes
 I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 ```
 
-O comando **lsblk** também pode ser utilizado, inclusive para verificar se existem partições montadas no momento. Use:  
+O comando **lsblk** também pode ser utilizado, inclusive para verificar se existem partições montadas no momento. Use:
 
 ```sh
 lsblk
@@ -361,7 +361,7 @@ Após o particionamento e a formatação das partições é hora de realizar a m
 mount /dev/sda3 /mnt
 ```
 
-Importante lembrar que estou usando `/dev/sda3` porque estou seguindo o exemplo que foi explicado anteriormente. Você deve substituir ```/dev/sda3``` pelo que seja adequado à sua máquina e ao esquema de particionamento que definiu.
+Importante lembrar que estou usando `/dev/sda3` porque estou seguindo o exemplo que foi explicado anteriormente. Você deve substituir `/dev/sda3` pelo que seja adequado à sua máquina e ao esquema de particionamento que definiu.
 
 Agora que colocamos a partição principal em seu devido lugar, iremos criar um diretório na mesma onde iremos montar a partição que contém os arquivos de inicialização do sistema:
 
@@ -379,7 +379,7 @@ Nossas partições estão montadas e prontas para receberem a instalação dos a
 
 ## Aviso importante antes da instalação do Arch Linux
 
-Os próximos passos envolverão a utilização do comando ```reflector``` para atualizar a lista de repositórios e o download e instalação dos arquivos do Arch Linux em si. Algumas vezes têm sido relatada a ocorrência desta mensagem de erro: **"invalid or corrupted package (PGP signature)"**. Caso isto ocorra, em algum momento, use:
+Os próximos passos envolverão a utilização do comando **reflector** para atualizar a lista de repositórios e o download e instalação dos arquivos do Arch Linux em si. Algumas vezes têm sido relatada a ocorrência desta mensagem de erro: **"invalid or corrupted package (PGP signature)"**. Caso isto ocorra, em algum momento, use:
 
 ```sh
 pacman -Sy archlinux-keyring 
@@ -441,7 +441,7 @@ Uma vez que acessamos o novo sistema, iremos fazer sua localização, ou seja, i
 # pt_BR.UTF-8 UTF-8
 ```
 
-Após localizar a linha, remova o símbolo "#" e o espaço presentes no início da linha, a fim de que ela fique deste jeito:
+Após localizar a linha, remova o símbolo **"#"** e o espaço presentes no início da linha, a fim de que ela fique deste jeito:
 
 ```
 pt_BR.UTF-8 UTF-8
