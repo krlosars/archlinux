@@ -3,7 +3,7 @@
 
 
 
-# arch-preinst.sh - Script de pré-instalação do Arch Linux
+# arch-pre-install.sh - Script de pré-instalação do Arch Linux
 # define o teclado, a fonte e formata as partições para receberem
 # a partição de boot (/boot/efi), a partição "swap" e a partição
 # raiz, montando as mesmas em sequência. Também fornece instruções
