@@ -48,12 +48,6 @@ SSD="sim"
 
 
 
-# Defina o nome para a conta de usuário
-USUARIO="krlao"
-
-
-
-
 # Somente modifique as linhas abaixo caso tenha absoluta
 # certeza do que está fazendo: elas executam as operações
 # necessárias à pré-instalação do Arch Linux!
@@ -64,9 +58,9 @@ USUARIO="krlao"
 # Instalação da fonte Terminus
 clear
 echo -e "\033[01m(SUDO)\033[00m -> Instalando a fonte \033[01mTerminus\033[00m para melhor visualização em modo console...\n"
-#sudo install terminus-font
+sudo install terminus-font
 echo -e "\nAjustando a fonte do console linux\n"
-#setfont ter-122n
+setfont ter-122n
 
 
 
@@ -76,9 +70,9 @@ echo -e "\nAjustando a fonte do console linux\n"
 if [ "$BLUETOOTH" = "sim" ];
 then
     echo -e "\033[01m(SUDO)\033[00m -> Instalando pacotes para gerenciar conexões BlueTooth...\n"
-    #sudo pacman -S bluez bluez-utils blueman
+    sudo pacman -S bluez bluez-utils blueman
     echo -e "\n\033[01m(SUDO)\033[00m -> Ativando gerenciamento de conexões BlueTooth...\n"
-    #sudo systemctl enable bluetooth
+    sudo systemctl enable bluetooth
 else
     echo -e "Suporte para gerenciamento de conexões BlueTooth não instalado.\n"
 fi
@@ -91,12 +85,12 @@ fi
 if [ "$NOTEBOOK" = "sim" ];
 then
     echo -e "\033[01m(SUDO)\033[00m -> Instalando pacotes para gerenciamento de energia em Notebooks...\n"
-    #sudo pacman -S tlp tlp-rdw powertop acpi
+    sudo pacman -S tlp tlp-rdw powertop acpi
     echo -e "\n\033[01m(SUDO)\033[00m -> Ativando gerenciamento de energia para Notebooks...\n"
-    #sudo systemctl enable tlp
-    #sudo systemctl enable tlp-sleep
-    #sudo systemctl mask systemd-rfkill.service
-    #sudo systemctl mask systemd-rfkill.socket
+    sudo systemctl enable tlp
+    sudo systemctl enable tlp-sleep
+    sudo systemctl mask systemd-rfkill.service
+    sudo systemctl mask systemd-rfkill.socket
 else
     echo -e "\nSuporte a gerenciamento de energia para Notebooks não instalado.\n"
 fi
@@ -109,7 +103,7 @@ fi
 if [ "$SSD" = "sim" ];
 then
     echo -e "\n\033[01m(SUDO)\033[00m -> Ativando suporte a unidades de disco SSD...\n"
-    #sudo systemctl enable fstrim.timer
+    sudo systemctl enable fstrim.timer
 else
     echo -e "\nSuporte a unidades de disco SSD não instalado.\n"
 fi
@@ -123,13 +117,13 @@ echo -e "\nIniciando a instalação do gerenciador de pacotes \033[01mYay\033[00
 echo -e "Fique atento: você será solicitado a interagir durante o processo"
 echo -e "de instalação do Yay e do aplicativo \033[01mpa-applet\033[00m, que será instalado"
 echo -e "em seguida.\n"
-#mkdir Sources
-#cd Sources
-#git clone https://aur.archlinux.org/yay.git
-#cd yay
-#makepkg -si
-#cd ..
-#rm -rf sources
+mkdir Sources
+cd Sources
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf Sources
 
 
 
@@ -138,7 +132,7 @@ echo -e "em seguida.\n"
 
 echo -e "\nIniciando a instalação do \033[01mpa-applet\033[00m. Fique atento: você"
 echo -e "será solicitado a interagir durante a instalação!\n"
-#yay -S pa-applet-git
+yay -S pa-applet-git
 
 
 
@@ -146,13 +140,13 @@ echo -e "será solicitado a interagir durante a instalação!\n"
 # 06. Instalando pacotes complementares
 
 echo -e "\n\033[01m(SUDO)\033[00m -> Iniciando a instalação de pacotes complementares... \n"
-#sudo pacman -Sy lesspipe atool zip xdg-utils perl-file-mimeinfo perl-net-dbus \
-    #    perl-x11-protocol perl-lwp-protocol-https bash-completion translate-shell \
-    #    aspell aspell-pt rlwrap lsd bat dex xf86-video-intel xorg-server xorg-apps \
-    #    xorg-xinit xorg-xev xsel xclip ttf-font ttf-victor-mono-nerd \
-    #    otf-firamono-nerd otf-fira-sans gnome-themes-extra papirus-icon-theme \
-    #    feh libheif libid3tag libjxl libspectre libwebp openjpeg2 jpegexiforient \
-    #    imagemagick libraw libwmf libzip ocl-icd djvulibre picom alacritty dunst \
-    #    npm tree-sitter tree-sitter-cli ripgrep lazygit gdu fzf the_silver_searcher \
-    #    lua-language-server
+sudo pacman -Sy lesspipe atool zip xdg-utils perl-file-mimeinfo perl-net-dbus \
+    perl-x11-protocol perl-lwp-protocol-https bash-completion translate-shell \
+    aspell aspell-pt rlwrap lsd bat dex xf86-video-intel xorg-server xorg-apps \
+    xorg-xinit xorg-xev xsel xclip ttf-font ttf-victor-mono-nerd \
+    otf-firamono-nerd otf-fira-sans gnome-themes-extra papirus-icon-theme \
+    feh libheif libid3tag libjxl libspectre libwebp openjpeg2 jpegexiforient \
+    imagemagick libraw libwmf libzip ocl-icd djvulibre picom alacritty dunst \
+    npm tree-sitter tree-sitter-cli ripgrep lazygit gdu fzf the_silver_searcher \
+    lua-language-server
 echo -e "\n\n\n"

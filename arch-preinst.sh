@@ -50,7 +50,7 @@ PARTICAO_ROOT="/dev/sda3"
 
 # 01. Configura o teclado
 
-#loadkeys "$TECLADO"
+loadkeys "$TECLADO"
 clear
 echo -e "O teclado foi ajustado para \033[01;32m$TECLADO\033[00m"
 
@@ -59,7 +59,7 @@ echo -e "O teclado foi ajustado para \033[01;32m$TECLADO\033[00m"
 
 # 02. Ajusta a fonte
 
-#setfont $FONTE
+setfont $FONTE
 echo -e "A fonte do console foi configurada para \033[01;32m$FONTE\033[00m\n"
 
 
@@ -67,11 +67,11 @@ echo -e "A fonte do console foi configurada para \033[01;32m$FONTE\033[00m\n"
 
 # 03. Formata as partições
 
-#mkfs.fat -F32 $PARTICAO_BOOT
+mkfs.fat -F32 $PARTICAO_BOOT
 echo -e "A partição \033[01;32m${PARTICAO_BOOT}\033[00m foi formatada -> \033[01;32mfat -f32\033[00m"
-#mkswap $PARTICAO_SWAP
+mkswap $PARTICAO_SWAP
 echo -e "A partição \033[01;32m${PARTICAO_SWAP}\033[00m foi formatada -> \033[01;32mswap\033[00m"
-#mkfs.btrfs -f $PARTICAO_ROOT
+mkfs.btrfs -f $PARTICAO_ROOT
 echo -e "A partição \033[01;32m${PARTICAO_ROOT}\033[00m foi formatada -> \033[01;32mbtrfs\033[00m\n"
 
 
@@ -79,12 +79,12 @@ echo -e "A partição \033[01;32m${PARTICAO_ROOT}\033[00m foi formatada -> \033[
 
 # 04. Monta as partições
 
-#mount $PARTICAO_ROOT /mnt
+mount $PARTICAO_ROOT /mnt
 echo -e "A raiz do sistema (\"/\") foi montada na partição \033[01;32m${PARTICAO_ROOT}\033[00m"
-#mkdir -p /mnt/boot/efi
-#mount $PARTICAO_BOOT /mnt/boot/efi
+mkdir -p /mnt/boot/efi
+mount $PARTICAO_BOOT /mnt/boot/efi
 echo -e "A partição \033[01;32m${PARTICAO_BOOT}\033[00m foi montada para inicialização do sistema em /boot/efi"
-#swapon $PARTICAO_SWAP
+swapon $PARTICAO_SWAP
 echo -e "A partição \033[01;32m${PARTICAO_SWAP}\033[00m foi definida para utilização swap\n\n\n"
 
 

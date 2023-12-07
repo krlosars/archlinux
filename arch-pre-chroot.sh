@@ -38,8 +38,8 @@ FUSO_HORARIO="America/Sao_Paulo"
 
 # 01. Ajusta o fuso horário
 
-#timedatectl set-timezone America/São_Paulo
-#timedatectl set-ntp true
+timedatectl set-timezone America/São_Paulo
+timedatectl set-ntp true
 clear
 echo -e "O fuso horário foi ajustado para \033[01;32m${FUSO_HORARIO}\033[00m"
 echo -e "data e hora atuais: \033[01;32m$(date)\033[00m\n"
@@ -50,8 +50,8 @@ echo -e "data e hora atuais: \033[01;32m$(date)\033[00m\n"
 # 02. Atualização e otimização da lista de repositórios
 
 echo -e "Atualizando e otimizando a lista de repositórios...\n"
-#pacman -Sy archlinux-keyring
-#reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+pacman -Sy archlinux-keyring
+reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 
 
@@ -59,7 +59,7 @@ echo -e "Atualizando e otimizando a lista de repositórios...\n"
 # 03. Instalando os pacotes essenciais
 
 echo -e "\nOs pacotes essenciais serão instalados agora!\n"
-#pacstrap /mnt linux linux-firmware base base-devel openssh dhcpcd nvim
+pacstrap /mnt linux linux-firmware base base-devel openssh dhcpcd nvim
 
 
 
@@ -67,8 +67,8 @@ echo -e "\nOs pacotes essenciais serão instalados agora!\n"
 # 04. Gera a tabela de partições para o sistema instalado
 
 echo -e "\nGerando a tabela de partições para o arquivo \033[01;32m/etc/fstab\033[00m\n\n\n"
-#genfstab -U -p /mnt >> /mnt/etc/fstab
-#cat /mnt/etc/fstab
+genfstab -U -p /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
 
 
 

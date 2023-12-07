@@ -57,16 +57,16 @@ USUARIO="krlao"
 # a tabela de localização do sistema, cria os arquivos que
 # contém as configurações do idioma e layout de teclado.
 
-#sed -i "s/^#pt_BR.UTF-8/pt_BR.UTF-8/" /etc/locale.gen
+sed -i "s/^#pt_BR.UTF-8/pt_BR.UTF-8/" /etc/locale.gen
 clear
 echo -e "Iniciando a geração da localização do sistema para \033[01;32mpt_BR.UTF-8\033[00m\n"
-#locale-gen
+locale-gen
 echo -e "\nCriando o arquivo \033[01;32m/etc/locale.conf\033[00m"
-#echo "LANG=pt_BR.UTF-8" >> /etc/locale.conf
-#echo "LANGUAGE=pt_BR" >> /etc/locale.conf
-#echo "LC_ALL=C" >> /etc/locale.conf
+echo "LANG=pt_BR.UTF-8" >> /etc/locale.conf
+echo "LANGUAGE=pt_BR" >> /etc/locale.conf
+echo "LC_ALL=C" >> /etc/locale.conf
 echo -e "Criando o arquivo \033[01;32m/etc/vconsole.conf\033[00m"
-#echo "KEYMAP=$TECLADO" >> /etc/vconsole.conf
+echo "KEYMAP=$TECLADO" >> /etc/vconsole.conf
 
 
 
@@ -74,8 +74,8 @@ echo -e "Criando o arquivo \033[01;32m/etc/vconsole.conf\033[00m"
 # 02. Ajuste do fuso horário
 
 echo -e "\nAjustando fuso horário para \033[01;32m${FUSO_HORARIO}\033[00m"
-#ln -sf /usr/share/zoneinfo/$FUSO_HORARIO /etc/localtime
-#hwclock --systohc
+ln -sf /usr/share/zoneinfo/$FUSO_HORARIO /etc/localtime
+hwclock --systohc
 echo -e "data e hora atuais: \033[01;32m$(date)\033[00m\n"
 
 
@@ -84,11 +84,11 @@ echo -e "data e hora atuais: \033[01;32m$(date)\033[00m\n"
 # 03. Criando os arquivos para configuração da rede
 
 echo -e "Definindo o HOSTNAME como \033[01;32m${MAQUINA}\033[00m"
-#echo $MAQUINA >> /etc/hostname
+echo $MAQUINA >> /etc/hostname
 echo -e "Criando o arquivo \033[01;32m/etc/hosts\033[00m\n"
-#echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
-#echo "::1 localhost.localdomain localhost" >> /etc/hosts
-#echo "127.0.0.1 $MAQUINA.localdomain $MAQUINA" >> /etc/hosts
+echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
+echo "::1 localhost.localdomain localhost" >> /etc/hosts
+echo "127.0.0.1 $MAQUINA.localdomain $MAQUINA" >> /etc/hosts
 
 
 
@@ -96,20 +96,20 @@ echo -e "Criando o arquivo \033[01;32m/etc/hosts\033[00m\n"
 # 04. Instalando pacotes complementares
 
 echo -e "Iniciando a instalação de pacotes complementares... \n"
-#pacman -S dosfstools os-prober mtools networkmanager network-manager-applet \
-    #    wpa_supplicant wireless_tools iw iwd lynx dialog sudo \
-    #    grub efibootmgr fuse2 lzop libisoburn tk man-pages-pt_br \
-    #    intel-ucode git reflector lshw unzip htop wget \
-    #    pulseaudio alsa-utils alsa-plugins pavucontrol xdg-user-dirs
+pacman -S dosfstools os-prober mtools networkmanager network-manager-applet \
+    wpa_supplicant wireless_tools iw iwd lynx dialog sudo \
+    grub efibootmgr fuse2 lzop libisoburn tk man-pages-pt_br \
+    intel-ucode git reflector lshw unzip htop wget \
+    pulseaudio alsa-utils alsa-plugins pavucontrol xdg-user-dirs
 
 
 
 # 05. Habilitando os serviços de rede
 
 echo -e "\nHabilitando serviços de rede...\n"
-#systemctl enable sshd
-#systemctl enable dhcpcd
-#systemctl enable NetworkManager
+systemctl enable sshd
+systemctl enable dhcpcd
+systemctl enable NetworkManager
 
 
 
@@ -117,26 +117,26 @@ echo -e "\nHabilitando serviços de rede...\n"
 # 06. Instalando o gerenciador de boot (GRUB)
 
 echo -e "\nEfetuando a instalação do gerenciador de boot (GRUB)...\n"
-#mkinitcpio -P
-#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
-#grub-mkconfig -o /boot/grub/grub.cfg
+mkinitcpio -P
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
+grub-mkconfig -o /boot/grub/grub.cfg
 
 
 
 
 # 07. Definindo a senha do administador (ROOT)
 echo -e "\nInforme a senha do administrador (root) e repita para confirmar\n"
-#passwd
+passwd
 
 
 
 
 # 08. Criando uma conta de usuário
 echo -e "\nDefina uma senha para o usuário $USUARIO e repita para confirmar\n"
-#useradd -m -g users -G wheel,storage,power,audio $USUARIO
-#passwd $USUARIO
-#echo -e "\nAtribuindo permissões administrativas para o usuário $USUARIO"
-#sed -i "s/#%wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/" /etc/sudoers
+useradd -m -g users -G wheel,storage,power,audio $USUARIO
+passwd $USUARIO
+echo -e "\nAtribuindo permissões administrativas para o usuário $USUARIO"
+sed -i "s/#%wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/" /etc/sudoers
 
 
 
