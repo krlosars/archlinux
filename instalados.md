@@ -44,25 +44,27 @@ essas dependências, mas eu aconselho que o faça porque pode ser que alguns dos
 problemas se você tentar acessar todas as funcionalidades que oferecem. Ademais, todos estes pacotes, incluindo suas dependências, ocupam um espaço
 relativamente pequeno no disco, bem menos de 10 gigas!
 
-* ~Gerador de prompt escrito em Rust -> sudo pacman -S starship~
+* ~~NÃO --> ~Gerador de prompt escrito em Rust -> sudo pacman -S starship~~
 * Melhoria para a saída do comando **"less"** -> sudo pacman -S lesspipe
-* ~Gerador de cores para os comandos "ls" e "lsd" -> sudo pacman -S vivid~
-* Ferramentas para manipular arquivos compactados -> sudo pacman -S atool zip ~lha p7zip unrar~
+* ~~NÃO --> ~Gerador de cores para os comandos "ls" e "lsd" -> sudo pacman -S vivid~~
+* PARCIAL -> Ferramentas para manipular arquivos compactados -> sudo pacman -S atool zip ~~lha p7zip unrar~~
 * Ferramentas importantes para lidar com arquivos -> sudo pacman -S xdg-utils perl-file-mimeinfo perl-net-dbus perl-x11-protocol perl-lwp-protocol-https
 * Completamento automático na linha de comando -> sudo pacman -S bash-completion
 * Tradutor de idiomas para a linha de comando: sudo pacman -S translate-shell aspell aspell-pt rlwrap
 * Substituto para o comando **"ls"** com diversas funcionalidades -> sudo pacman -S lsd
 * Idem acima, mas para o comando **"cat"** -> sudo pacman -S bat
-* Servidor de Música -> sudo pacman -S mpd mpc
+* ~~NÃO --> Servidor de Música -> sudo pacman -S mpd mpc~~
 * Aplicativo utilizado para efetuar o "auto start" de alguns programas -> sudo pacman -S dex
 * Servidor Gráfico (Xorg) -> sudo pacman -S xf86-video-intel xorg-server xorg-apps xorg-xinit xorg-xev xsel xclip ttf-font
-* Temas e _"engines"_ GTK -> sudo pacman -S sassc gtk-engines gtk-engine-murrine gnome-themes-extra papirus-icon-theme
+* Fontes: sudo pacman -S terminus-font ttf-victor-mono-nerd otf-firamono-nerd otf-fira-sans
+* Temas e _"engines"_ GTK -> sudo ~~pacman -S sassc gtk-engines gtk-engine-murrine~~ gnome-themes-extra papirus-icon-theme
 * Ferramentas gráficas -> sudo pacman -S feh libheif libid3tag libjxl libspectre libwebp openjpeg2 jpegexiforient imagemagick libraw libwmf libzip ocl-icd djvulibre
 * Compositor gráfico para o Xorg -> sudo pacman -S picom
-* ~Adiciona interface gráfica (GTK) ao editor VIM -> sudo pacman -S gvim~
-* Visualizador de imagens, também com interface GTK -> sudo pacman -S pqiv
-* Leitor de documentos PDF, também com interface GTK -> sudo pacman -S zathura zathura-pdf-poppler
+* ~~NÃO --> ~Adiciona interface gráfica (GTK) ao editor VIM -> sudo pacman -S gvim~~
+* ~~NÃO --> Visualizador de imagens, também com interface GTK -> sudo pacman -S pqiv~~
+* ~~NÃO --> Leitor de documentos PDF, também com interface GTK -> sudo pacman -S zathura zathura-pdf-poppler~~
 * Emulador de Terminal para o ambiente gráfico -> sudo pacman -S alacritty
+* Fonte utilizada pelo Alacritty: sudo pacman -Sy otf-firamono-nerd
 
 ## Uma pequena pausa
 
@@ -74,7 +76,8 @@ de vários _"patches"_. A ideia com essa pausa na instalação era poder dar par
 
 ## Prosseguindo com a instalação de mais pacotes
 
-* ~Gerenciador de Arquivos -> sudo pacman -S ranger ffmpegthumbnailer highlight libcaca mediainfo odt2txt perl-image-exiftool perl-archive-zip python-chardet transmission-cli ueberzug~
+* ~~Gerenciador de Arquivos -> sudo pacman -S ranger ffmpegthumbnailer highlight libcaca mediainfo odt2txt perl-image-exiftool perl-archive-zip python-chardet transmission-cli ueberzug~~
+* Gerenciador de Arquivos com interface GTK -> sudo pacman -S pcmanfm-gtk3 xarchiver unarj unrar 
 * Navegador para internet -> yay -S google-chrome
 * Gerenciador de pacotes JScript que é dependência de várias aplicações -> sudo pacman -S npm
 * _"Daemon"_ para notificações -> sudo pacman -S dunst
@@ -88,9 +91,8 @@ de vários _"patches"_. A ideia com essa pausa na instalação era poder dar par
 * Aplicativo para imprimir a tela (printscreen) -> sudo pacman -S maim xdotool
 * Editor de texto alternativo ao vim com melhor suporte para LSPs -> sudo pacman -S helix
 * Cliente para tldr (alternativa às "man pages") -> sudo pacman -S tealdeer
-* Aplicativo usado por várias aplicações diferentes -> sudo pacman -S fzf
-* Neovim: alternativa ao VIM com novos recursos -> sudo pacman -S neovim xclip xsel lua-language-server tree-sitter tree-sitter-cli ripgrep
-* Silver Searcher: Complemento ao FZF necessário ao plugin vim-fzf -> sudo pacman -S the_silver_searcher
+* Neovim: alternativa ao VIM com novos recursos -> sudo pacman -S neovim 
+* Dependências para instalçação do AstroNvim -> sudo pacman -S xclip xsel tree-sitter tree-sitter-cli ripgrep lazygit gdu fzf the_silver_searcher lua-language-server
 
 ## Linguagens & LSPs
 
